@@ -13,6 +13,7 @@ async function run() {
     const gh = new GitHub(config.github_token);
     let rel = await release(config, new GitHubReleaser(gh));
     if (config.input_files) {
+      console.log(paths(config.input_files))
       paths(config.input_files).forEach(async path => {
         await upload(gh, rel.upload_url, path);
       });
