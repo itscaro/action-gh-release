@@ -7,6 +7,8 @@ import { env } from "process";
 async function run() {
   try {
     const config = parseConfig(env);
+    console.log(config)
+    console.log(config.input_files)
     if (!isTag(config.github_ref)) {
       throw new Error(`⚠️ GitHub Releases requires a tag`);
     }
